@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js" integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<%- include('../partial/logInCss')%>
+</head>
+<body>
+<div class="login-page">
+    <div class="form">
+            <form class="register-form" action="/create" method="post">
+                <input type="text" placeholder="userName" name="userName">
+                <input type="password" placeholder="password" name="password">
+                <input type="email" placeholder="email address" name="email">
+                <input type="text" placeholder="fullName" name="fullName">
+                <input type="text" placeholder="address" name="address">
+                <input type="date" placeholder="birthday" name="birthday">
+                <input type="text" placeholder="phoneNumber" name="phoneNumber">
+                <button type="submit">create</button>
+            </form>
+            <p class="message">Already registered? <a href="#">Sign In</a></p>
+        <form class="login-form" action="/login" method="post">
+            <input type="text" placeholder="userName" name="userName">
+            <input type="password" placeholder="password" name="password">
+            <button type="submit">login</button>
+            <p class="message">Not registered? <a href="#">Create an account</a></p>
+        </form>
+    </div>
+</div>
+<%- include('../partial/loginJs')%>
+</body>
+</html>

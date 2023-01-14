@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Ogani Template">
+    <meta name="keywords" content="Ogani, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ogani | Template</title>
+
+    <%- include('../partial/homeCss')%>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;600;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<header class="header">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2">
+                <div class="header__logo">
+                    <a href="./index.html"><img src="/img/logo.png" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-9">
+                <nav class="header__menu">
+                    <ul>
+                        <li><a href="">Danh sách người dùng<i class="fa fa-user" aria-hidden="true"></i></a></li>
+                        <li class="active"><a href="/product/homeAdmin">Home <i class="fa fa-home" aria-hidden="true"></i></a></li>
+                        <li><a href="/logout">Đăng Xuất <i class="fa fa-sign-out" aria-hidden="true"></i></a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-lg-1">
+                <div class="header__cart">
+                    <ul>
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="humberger__open">
+            <i class="fa fa-bars"></i>
+        </div>
+    </div>
+</header>
+
+<section class="checkout spad">
+    <div class="container">
+        <div class="checkout__form">
+            <h4>Thêm sản phẩm mới</h4>
+            <form action="/product/create" method="post" enctype="multipart/form-data">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="checkout__input">
+                                    <p>Tên Sản Phẩm<span>*</span></p>
+                                    <input type="text" name="name">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="checkout__input">
+                            <p>Price<span>*</span></p>
+                            <input type="text" name="price">
+                        </div>
+                        <div class="checkout__input">
+                            <p>amount<span>*</span></p>
+                            <input type="text" name="amount">
+                        </div>
+                        <div class="checkout__input">
+                            <select name="category">
+                                <% categories.map(item =>{ %>
+                                <option value="<%= item._id %>"><%= item.name %></option>
+                                <% }) %>
+                            </select>
+                        </div>
+                        <div>
+                            <p>Image<span>*</span></p>
+                            <input type="file" name="image" >
+                        </div>
+                        <br>
+                        <div class="checkout__input">
+                            <button type="submit" class="site-btn">APPLY</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+<%- include('../partial/homeJs')%>
+</html>
