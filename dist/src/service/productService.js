@@ -25,6 +25,14 @@ class ProductService {
             newProduct._id = id;
             await product_1.products.updateOne({ _id: id }, newProduct);
         };
+        this.searchByName = async (name) => {
+            let product = await product_1.products.find({ "name": { "$regex": name } });
+            return product;
+        };
+        this.searchByPrice = async (lowest, tallest) => {
+            let product = await product_1.products.find({ price: { $gte: lowest, $lte: tallest } });
+            return product;
+        };
     }
 }
 exports.default = new ProductService();

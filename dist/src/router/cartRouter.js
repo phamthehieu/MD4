@@ -11,4 +11,6 @@ exports.cartRouter.get("/cart", cartDetailController_1.default.showFormCart);
 exports.cartRouter.get("/addProduct/:id", cartDetailController_1.default.addCartDetail);
 exports.cartRouter.post("/quantity/:id", cartDetailController_1.default.updateQuantity);
 exports.cartRouter.get("/delete/:id", cartDetailController_1.default.deleteProductCart);
+exports.cartRouter.get("/pay", cartDetailController_1.default.payCart);
+exports.cartRouter.get("/showOrder", cartDetailController_1.default.showCartPaid);
 //# sourceMappingURL=cartRouter.js.map

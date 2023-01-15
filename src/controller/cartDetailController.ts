@@ -25,6 +25,7 @@ class CartDetailController {
         let id = req.session["User"];
         let Cart = await cartService.findById(id.id)
         let idCart = Cart._id.toString()
+        let checkIdProduct = await cartDetailService.fillProduct(idProduct)
         let priceProduct = await productService.findProduct(idProduct)
         let amountProduct = 1
         let total = amountProduct * priceProduct.price
@@ -60,6 +61,20 @@ class CartDetailController {
         let totalCart = totalProduct[totalProduct.length - 1].total
         await cartService.addTotal(id.id,totalCart)
         res.redirect('/cart/cart')
+    }
+    payCart = async (req: Request, res: Response) => {
+        let status = "Paid"
+        let id = req.session["User"];
+        let Cart = await cartService.findById(id.id)
+        let idCart = Cart._id.toString()
+        await cartService.updateStatus(idCart,status)
+        res.redirect(301, '/product/home')
+    }
+    showCartPaid = async (req: Request, res: Response) => {
+        let cart = await cartService.findByStatus()
+        if(cart)
+            console.log(cart)
+        res.render("products/CardPaid",{cart: cart[0]})
     }
 }
 export default new CartDetailController();

@@ -58,8 +58,32 @@ constructor() {
             }
         }
     }
-    addCart = async (req: Request, res: Response) => {
-
-    }
+   searchByName = async (req: Request, res: Response) => {
+        let name = req.body
+    let products = await productService.searchByName(name.name)
+       res.render('home',{products: products})
+   }
+   searchByPrice = async (req: Request, res: Response) => {
+       const idProduct = req.params.id;
+       let lowest = 0;
+       let tallest = 0;
+       if (idProduct === "1") {
+           tallest = 10;
+           let products = await productService.searchByPrice(lowest, tallest)
+           res.render('home',{products: products})
+       }
+       if (idProduct === "2") {
+           lowest = 10;
+           tallest = 20;
+           let products = await productService.searchByPrice(lowest, tallest)
+           res.render('home',{products: products})
+       }
+       if (idProduct === "3") {
+           lowest = 20;
+           tallest = 30;
+           let products = await productService.searchByPrice(lowest, tallest)
+           res.render('home',{products: products})
+       }
+   }
 }
 export default new ProductController();

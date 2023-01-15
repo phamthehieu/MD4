@@ -1,9 +1,9 @@
 import {model, Schema} from "mongoose";
 import {IUser} from "./user";
  import {ICartDetail} from "./cartDetail";
+import {IProduct} from "./product";
 
 export interface ICart {
-
     cartDetail: ICartDetail;
     user: IUser;
     status: string;

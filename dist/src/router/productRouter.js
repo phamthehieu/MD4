@@ -14,4 +14,6 @@ exports.productRouter.post('/delete/:id', productController_1.default.deleteProd
 exports.productRouter.get('/edit/:id', productController_1.default.showFormEdit);
 exports.productRouter.post('/edit/:id', productController_1.default.editProduct);
 exports.productRouter.post("/create", productController_1.default.createProducts);
+exports.productRouter.post("/search", productController_1.default.searchByName);
+exports.productRouter.get("/searchPrice/:id", productController_1.default.searchByPrice);
 //# sourceMappingURL=productRouter.js.map

@@ -34,6 +34,12 @@ declare class ProductService {
         _id: import("mongoose").Types.ObjectId;
     }>;
     editProduct: (id: any, newProduct: any) => Promise<any>;
+    searchByName: (name: any) => Promise<(import("mongoose").Document<unknown, any, import("../model/product").IProduct> & import("../model/product").IProduct & {
+        _id: import("mongoose").Types.ObjectId;
+    })[]>;
+    searchByPrice: (lowest: any, tallest: any) => Promise<(import("mongoose").Document<unknown, any, import("../model/product").IProduct> & import("../model/product").IProduct & {
+        _id: import("mongoose").Types.ObjectId;
+    })[]>;
 }
 declare const _default: ProductService;
 export default _default;

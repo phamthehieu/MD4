@@ -13,6 +13,13 @@ class CartService {
         this.addTotal = async (idUser, totalCart) => {
             await cart_1.Carts.updateOne({ user: idUser }, { total: totalCart });
         };
+        this.updateStatus = async (idCart, status) => {
+            await cart_1.Carts.updateOne({ _id: idCart }, { status: status });
+        };
+        this.findByStatus = async () => {
+            let cart = await cart_1.Carts.find({ status: "Paid" }).populate('user');
+            return cart;
+        };
     }
 }
 exports.default = new CartService();

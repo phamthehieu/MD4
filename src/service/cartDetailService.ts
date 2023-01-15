@@ -14,7 +14,7 @@ class CartDetailService {
     }
     fillProduct = async (idProduct) => {
        let CartDetail =  await CartDetails.findOne({product: idProduct});
-        return CartDetail;
+           return CartDetail;
     }
     updateTotal = async (idProduct, total) => {
         await CartDetails.updateOne({product: idProduct}, {total: total})

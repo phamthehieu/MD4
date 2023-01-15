@@ -30,6 +30,10 @@ declare class CartService {
         _id: import("mongoose").Types.ObjectId;
     }>;
     addTotal: (idUser: any, totalCart: any) => Promise<void>;
+    updateStatus: (idCart: any, status: any) => Promise<void>;
+    findByStatus: () => Promise<Omit<import("mongoose").Document<unknown, any, import("../model/cart").ICart> & import("../model/cart").ICart & {
+        _id: import("mongoose").Types.ObjectId;
+    }, never>[]>;
 }
 declare const _default: CartService;
 export default _default;

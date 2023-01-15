@@ -56,7 +56,32 @@ class ProductController {
                 }
             }
         };
-        this.addCart = async (req, res) => {
+        this.searchByName = async (req, res) => {
+            let name = req.body;
+            let products = await productService_1.default.searchByName(name.name);
+            res.render('home', { products: products });
+        };
+        this.searchByPrice = async (req, res) => {
+            const idProduct = req.params.id;
+            let lowest = 0;
+            let tallest = 0;
+            if (idProduct === "1") {
+                tallest = 10;
+                let products = await productService_1.default.searchByPrice(lowest, tallest);
+                res.render('home', { products: products });
+            }
+            if (idProduct === "2") {
+                lowest = 10;
+                tallest = 20;
+                let products = await productService_1.default.searchByPrice(lowest, tallest);
+                res.render('home', { products: products });
+            }
+            if (idProduct === "3") {
+                lowest = 20;
+                tallest = 30;
+                let products = await productService_1.default.searchByPrice(lowest, tallest);
+                res.render('home', { products: products });
+            }
         };
         this.productService = productService_1.default;
         this.categoryService = categoryService_1.default;
